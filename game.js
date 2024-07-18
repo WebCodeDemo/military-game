@@ -158,7 +158,7 @@ const scenarios = [
         options: [
             {
                 text: "Prioritize frontline troops",
-                changes: { utilitarianMorality: 10, deontologicalMorality: -5, workEthic: 15 },
+                changes: { utilitarianMorality: 20, deontologicalMorality: -10, workEthic: 15 },
                 outcomes: [
                     { probability: 0.5, text: "Frontline maintains effectiveness, support units struggle." },
                     { probability: 0.3, text: "Mixed results, some frontline units excel while others falter." },
@@ -167,7 +167,7 @@ const scenarios = [
             },
             {
                 text: "Allocate equally among all units",
-                changes: { utilitarianMorality: -5, deontologicalMorality: 15, workEthic: -5 },
+                changes: { utilitarianMorality: -15, deontologicalMorality: 20, workEthic: 5 },
                 outcomes: [
                     { probability: 0.4, text: "Maintained cohesion, but reduced effectiveness across all units." },
                     { probability: 0.4, text: "Some units adapt well, others struggle with limited supplies." },
@@ -176,7 +176,7 @@ const scenarios = [
             },
             {
                 text: "Divert resources to medical facilities",
-                changes: { utilitarianMorality: 15, deontologicalMorality: 10, workEthic: -10 },
+                changes: { utilitarianMorality: 15, deontologicalMorality: 15, workEthic: -5 },
                 outcomes: [
                     { probability: 0.5, text: "Improved survival rates, combat effectiveness drops." },
                     { probability: 0.3, text: "Mixed results, some lives saved but increased combat casualties." },
@@ -185,7 +185,7 @@ const scenarios = [
             },
             {
                 text: "Attempt to seize enemy supplies, risking lives",
-                changes: { utilitarianMorality: 5, deontologicalMorality: -20, workEthic: 20 },
+                changes: { utilitarianMorality: 10, deontologicalMorality: -15, workEthic: 20 },
                 outcomes: [
                     { probability: 0.3, text: "Successful raid, supplies replenished, some casualties." },
                     { probability: 0.4, text: "Partial success, moderate casualties, some supplies gained." },
@@ -194,7 +194,7 @@ const scenarios = [
             },
             {
                 text: "Request emergency air drop, risking exposure",
-                changes: { utilitarianMorality: 5, deontologicalMorality: 5, workEthic: 5 },
+                changes: { utilitarianMorality: 10, deontologicalMorality: -10, workEthic: 5 },
                 outcomes: [
                     { probability: 0.4, text: "Successful drop, supplies replenished, minor enemy engagement." },
                     { probability: 0.4, text: "Partial success, some supplies lost, moderate enemy engagement." },
@@ -209,7 +209,7 @@ const scenarios = [
         options: [
             {
                 text: "Launch a preemptive strike on the facility",
-                changes: { utilitarianMorality: 15, deontologicalMorality: -25, workEthic: 20 },
+                changes: { utilitarianMorality: 20, deontologicalMorality: -20, workEthic: 15 },
                 outcomes: [
                     { probability: 0.4, text: "Facility destroyed, nuclear threat eliminated, civilian casualties." },
                     { probability: 0.4, text: "Partial destruction, program set back, international backlash." },
@@ -218,7 +218,7 @@ const scenarios = [
             },
             {
                 text: "Impose severe economic sanctions",
-                changes: { utilitarianMorality: -5, deontologicalMorality: 15, workEthic: 5 },
+                changes: { utilitarianMorality: 10, deontologicalMorality: 10, workEthic: 5 },
                 outcomes: [
                     { probability: 0.3, text: "Enemy abandons program due to economic pressure." },
                     { probability: 0.5, text: "Program slowed, but continues under hardship." },
@@ -227,7 +227,7 @@ const scenarios = [
             },
             {
                 text: "Attempt covert sabotage of the facility",
-                changes: { utilitarianMorality: 10, deontologicalMorality: -10, workEthic: 15 },
+                changes: { utilitarianMorality: 15, deontologicalMorality: -15, workEthic: 15 },
                 outcomes: [
                     { probability: 0.4, text: "Sabotage successful, program significantly delayed." },
                     { probability: 0.4, text: "Partial success, minor setbacks to the program." },
@@ -236,7 +236,7 @@ const scenarios = [
             },
             {
                 text: "Negotiate for disarmament, offering incentives",
-                changes: { utilitarianMorality: 5, deontologicalMorality: 20, workEthic: -10 },
+                changes: { utilitarianMorality: 5, deontologicalMorality: 20, workEthic: -20 },
                 outcomes: [
                     { probability: 0.3, text: "Successful negotiation, program peacefully dismantled." },
                     { probability: 0.5, text: "Partial agreement reached, program continues under monitoring." },
@@ -245,7 +245,7 @@ const scenarios = [
             },
             {
                 text: "Mobilize for full-scale invasion",
-                changes: { utilitarianMorality: -15, deontologicalMorality: -20, workEthic: 25 },
+                changes: { utilitarianMorality: -20, deontologicalMorality: -20, workEthic: 20 },
                 outcomes: [
                     { probability: 0.3, text: "Successful invasion, nuclear threat neutralized, high casualties." },
                     { probability: 0.4, text: "Partial success, prolonged conflict, uncertain nuclear situation." },
