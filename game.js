@@ -343,20 +343,20 @@ function endGame() {
     const low = 30;
 
     if (gameState.deontologicalMorality >= high && gameState.workEthic >= high && gameState.utilitarianMorality < low) {
-        ending = "General Quagmire, your unwavering commitment to moral principles and tireless work ethic have earned you a reputation as a paragon of military virtue. However, your rigid adherence to rules has sometimes come at a great cost to overall mission success and troop morale. You retire with honors but leave behind a complex legacy.";
-    } else if (gameState.utilitarianMorality >= high && gameState.workEthic >= high && gameState.deontologicalMorality < low) {
-        ending = "General Quagmire, your pragmatic approach to military operations and relentless drive have led to numerous successful missions with minimal casualties. However, your willingness to bend rules and compromise principles has raised ethical concerns. You're promoted to a top strategic position, but your methods remain controversial.";
-    } else if (gameState.deontologicalMorality >= high && gameState.utilitarianMorality >= high && gameState.workEthic < low) {
-        ending = "General Quagmire, your balanced approach to ethical decision-making has earned you respect from various factions. Your ability to navigate complex moral landscapes is unparalleled. However, your lack of initiative and poor work ethic have hindered your career progression. You're reassigned to an advisory role, where your insights are valued but your leadership is limited.";
-    } else if (gameState.deontologicalMorality >= low && gameState.deontologicalMorality < high &&
-               gameState.utilitarianMorality >= low && gameState.utilitarianMorality < high &&
-               gameState.workEthic >= low && gameState.workEthic < high) {
-        ending = "General Quagmire, your career has been marked by a series of compromises and middle-ground decisions. While you've avoided major controversies, you've also failed to distinguish yourself in any particular area. You retire with a mixed reputation, recognized for your ability to balance competing interests but criticized for lack of bold leadership.";
-    } else if (gameState.deontologicalMorality < low && gameState.utilitarianMorality < low && gameState.workEthic < low) {
-        ending = "General Quagmire, your inability to effectively navigate the complex moral landscape of military leadership, coupled with a poor work ethic, has led to your early retirement. Your legacy is one of missed opportunities and failed potential. You leave the military to pursue a quiet civilian life, reflecting on the challenges of command.";
-    } else {
-        ending = "General Quagmire, your career has been marked by a unique combination of strengths and weaknesses. Your legacy in the military is complex and multifaceted, leaving behind a trail of both accomplishments and controversies. As you move on to the next chapter of your life, the impact of your command will continue to be debated in military circles for years to come.";
-    }
+    ending = "General, your uncompromising moral stance and relentless work ethic have set a new standard for military integrity. Your name is synonymous with honor and duty. However, your rigid principles led to catastrophic mission failures, costing countless lives. The blood of those you could have saved, but didn't, will forever stain your legacy of virtue.";
+} else if (gameState.utilitarianMorality >= high && gameState.workEthic >= high && gameState.deontologicalMorality < low) {
+    ending = "Your pragmatic leadership saved millions of lives and achieved unprecedented military success. You'll be remembered as one of the most effective commanders in history. Yet, your willingness to cross ethical lines has left a trail of war crimes and human rights violations. As you rise to the highest echelons of command, the ghosts of your atrocities rise with you.";
+} else if (gameState.deontologicalMorality >= high && gameState.utilitarianMorality >= high && gameState.workEthic < low) {
+    ending = "Your nuanced ethical approach has revolutionized military philosophy, earning you global acclaim as a moral visionary. Future generations will study your decision-making model. However, your chronic inaction and hesitation led to the collapse of critical operations and the loss of key strategic positions. Your wisdom will be celebrated, but your command will be remembered as a period of military decline.";
+} else if (gameState.deontologicalMorality >= low && gameState.deontologicalMorality < high &&
+           gameState.utilitarianMorality >= low && gameState.utilitarianMorality < high &&
+           gameState.workEthic >= low && gameState.workEthic < high) {
+    ending = "Your moderate approach maintained a delicate balance, avoiding major ethical scandals or strategic blunders. But in trying to please everyone, you've pleased no one. Your tenure is marked by stagnation, missed opportunities, and a failure to address critical issues. History will remember you as the commander who stood idle while the world changed around you.";
+} else if (gameState.deontologicalMorality < low && gameState.utilitarianMorality < low && gameState.workEthic < low) {
+    ending = "Your command will be studied for generations as a cautionary tale of military leadership. Your moral failures led to atrocities, your strategic ineptitude resulted in devastating losses, and your laziness allowed corruption to flourish. You've single-handedly set back military progress by decades. Congratulations, you've achieved infamy few could imagine.";
+} else {
+    ending = "Your unconventional command has left an indelible mark on military history. You've achieved remarkable successes that will be celebrated for years. Yet, these triumphs are inseparable from the trail of controversial decisions and moral compromises left in your wake. Your legacy is a Pandora's box of military innovation and ethical quandaries that will challenge strategists and philosophers for generations to come.";
+}
 
     logMessage(ending);
     document.getElementById('options').innerHTML = '<button onclick="restartGame()">Play Again</button>';
