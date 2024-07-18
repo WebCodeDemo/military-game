@@ -14,7 +14,7 @@ const scenarios = [
         options: [
             {
                 text: "Negotiate with the enemy",
-                changes: { utilitarianMorality: 10, deontologicalMorality: -5, workEthic: -10 },
+                changes: { utilitarianMorality: 10, deontologicalMorality: 10, workEthic: -20 },
                 outcomes: [
                     { probability: 0.6, text: "Successful negotiation, all civilians released." },
                     { probability: 0.3, text: "Partial success, half civilians released, talks ongoing." },
@@ -23,7 +23,7 @@ const scenarios = [
             },
             {
                 text: "Storm the building with a high risk of casualties",
-                changes: { utilitarianMorality: -5, deontologicalMorality: -10, workEthic: 20 },
+                changes: { utilitarianMorality: -10, deontologicalMorality: -10, workEthic: 20 },
                 outcomes: [
                     { probability: 0.4, text: "Operation succeeds, most hostages saved, some military casualties." },
                     { probability: 0.4, text: "Partial success, half hostages saved, significant casualties." },
@@ -41,7 +41,7 @@ const scenarios = [
             },
             {
                 text: "Cut off supplies and wait for the enemy to surrender",
-                changes: { utilitarianMorality: -10, deontologicalMorality: 15, workEthic: -5 },
+                changes: { utilitarianMorality: -5, deontologicalMorality: 20, workEthic: -5 },
                 outcomes: [
                     { probability: 0.4, text: "Enemy surrenders after three days, most hostages survive." },
                     { probability: 0.4, text: "Week-long siege, half hostages survive, public opinion suffers." },
@@ -56,7 +56,7 @@ const scenarios = [
         options: [
             {
                 text: "Redirect troops to protect refugees",
-                changes: { utilitarianMorality: 15, deontologicalMorality: 10, workEthic: -10 },
+                changes: { utilitarianMorality: -15, deontologicalMorality: 15, workEthic: -15 },
                 outcomes: [
                     { probability: 0.5, text: "Successfully protect refugees, minor mission delay." },
                     { probability: 0.3, text: "Partial protection, some refugees harmed, significant mission delay." },
@@ -65,7 +65,7 @@ const scenarios = [
             },
             {
                 text: "Evacuate them to a safe zone, delaying the mission",
-                changes: { utilitarianMorality: 10, deontologicalMorality: 15, workEthic: -15 },
+                changes: { utilitarianMorality: -5, deontologicalMorality: 5, workEthic: -20 },
                 outcomes: [
                     { probability: 0.6, text: "Successful evacuation, mission significantly delayed." },
                     { probability: 0.3, text: "Partial evacuation, some refugees left behind, mission delayed." },
@@ -74,7 +74,7 @@ const scenarios = [
             },
             {
                 text: "Ignore the refugees and proceed with the mission",
-                changes: { utilitarianMorality: -20, deontologicalMorality: -15, workEthic: 20 },
+                changes: { utilitarianMorality: 15, deontologicalMorality: -15, workEthic: 25 },
                 outcomes: [
                     { probability: 0.4, text: "Mission succeeds, many refugee casualties reported later." },
                     { probability: 0.4, text: "Mission partially succeeds, moderate refugee casualties." },
@@ -83,7 +83,7 @@ const scenarios = [
             },
             {
                 text: "Use the refugees as a distraction",
-                changes: { utilitarianMorality: 5, deontologicalMorality: -25, workEthic: 15 },
+                changes: { utilitarianMorality: 20, deontologicalMorality: -20, workEthic: 20 },
                 outcomes: [
                     { probability: 0.5, text: "Strategy works, mission succeeds, some refugee casualties." },
                     { probability: 0.3, text: "Partial success, significant refugee casualties." },
@@ -92,8 +92,8 @@ const scenarios = [
             },
             {
                 text: "Provide humanitarian aid, risking enemy ambush",
-                changes: { utilitarianMorality: 5, deontologicalMorality: 20, workEthic: -5 },
-                outcomes: [
+                changes: { utilitarianMorality: -15, deontologicalMorality: 15, workEthic: -10 },
+                outcomes: [ 
                     { probability: 0.4, text: "Aid successfully provided, minor skirmishes with enemy." },
                     { probability: 0.4, text: "Aid partially provided, some troops ambushed." },
                     { probability: 0.2, text: "Major enemy ambush, significant military casualties." }
@@ -107,7 +107,7 @@ const scenarios = [
         options: [
             {
                 text: "Conduct a thorough investigation, risking mission delay",
-                changes: { utilitarianMorality: 5, deontologicalMorality: 15, workEthic: 10 },
+                changes: { utilitarianMorality: 5, deontologicalMorality: 5, workEthic: -10 },
                 outcomes: [
                     { probability: 0.5, text: "Investigation successful, saboteur caught, mission delayed." },
                     { probability: 0.3, text: "Partial success, leads identified but inconclusive, significant delay." },
@@ -116,7 +116,7 @@ const scenarios = [
             },
             {
                 text: "Use enhanced interrogation on suspects",
-                changes: { utilitarianMorality: 10, deontologicalMorality: -25, workEthic: 15 },
+                changes: { utilitarianMorality: 10, deontologicalMorality: -20, workEthic: 10 },
                 outcomes: [
                     { probability: 0.4, text: "Saboteur quickly identified, some controversy over methods." },
                     { probability: 0.4, text: "Partial success, some information gained, increased tension in ranks." },
@@ -125,7 +125,7 @@ const scenarios = [
             },
             {
                 text: "Implement immediate security lockdown, affecting morale",
-                changes: { utilitarianMorality: 5, deontologicalMorality: 5, workEthic: 20 },
+                changes: { utilitarianMorality: 10, deontologicalMorality: 5, workEthic: 20 },
                 outcomes: [
                     { probability: 0.5, text: "Lockdown prevents further sabotage, morale suffers." },
                     { probability: 0.3, text: "Partial success, minor incidents occur, significant morale drop." },
@@ -134,7 +134,7 @@ const scenarios = [
             },
             {
                 text: "Ignore it and continue the mission, hoping the saboteur doesn't strike again",
-                changes: { utilitarianMorality: -15, deontologicalMorality: -20, workEthic: 5 },
+                changes: { utilitarianMorality: -20, deontologicalMorality: 20, workEthic: -15 },
                 outcomes: [
                     { probability: 0.3, text: "Mission proceeds, no further incidents." },
                     { probability: 0.4, text: "Minor additional sabotage, mission partially compromised." },
@@ -143,7 +143,7 @@ const scenarios = [
             },
             {
                 text: "Offer amnesty in exchange for the saboteur's identity",
-                changes: { utilitarianMorality: 15, deontologicalMorality: -10, workEthic: -5 },
+                changes: { utilitarianMorality: -5, deontologicalMorality: -10, workEthic: -5 },
                 outcomes: [
                     { probability: 0.4, text: "Saboteur identified, some controversy over amnesty." },
                     { probability: 0.4, text: "Accomplice comes forward, main saboteur remains hidden." },
