@@ -338,18 +338,27 @@ function endGame() {
     logMessage(`Deontological Morality: ${gameState.deontologicalMorality}`);
     logMessage(`Work Ethic: ${gameState.workEthic}`);
 
-    // Determine the player's overall approach
-    let highestStat = Math.max(gameState.utilitarianMorality, gameState.deontologicalMorality, gameState.workEthic);
-    let approach = "";
-    if (highestStat === gameState.utilitarianMorality) {
-        approach = "You prioritized utilitarian outcomes, focusing on the greater good.";
-    } else if (highestStat === gameState.deontologicalMorality) {
-        approach = "You prioritized moral principles and rules, regardless of consequences.";
+    let ending = "";
+    const high = 70;
+    const low = 30;
+
+    if (gameState.deontologicalMorality >= high && gameState.workEthic >= high && gameState.utilitarianMorality < low) {
+        ending = "General Quagmire, your unwavering commitment to moral principles and tireless work ethic have earned you a reputation as a paragon of military virtue. However, your rigid adherence to rules has sometimes come at a great cost to overall mission success and troop morale. You retire with honors but leave behind a complex legacy.";
+    } else if (gameState.utilitarianMorality >= high && gameState.workEthic >= high && gameState.deontologicalMorality < low) {
+        ending = "General Quagmire, your pragmatic approach to military operations and relentless drive have led to numerous successful missions with minimal casualties. However, your willingness to bend rules and compromise principles has raised ethical concerns. You're promoted to a top strategic position, but your methods remain controversial.";
+    } else if (gameState.deontologicalMorality >= high && gameState.utilitarianMorality >= high && gameState.workEthic < low) {
+        ending = "General Quagmire, your balanced approach to ethical decision-making has earned you respect from various factions. Your ability to navigate complex moral landscapes is unparalleled. However, your lack of initiative and poor work ethic have hindered your career progression. You're reassigned to an advisory role, where your insights are valued but your leadership is limited.";
+    } else if (gameState.deontologicalMorality >= low && gameState.deontologicalMorality < high &&
+               gameState.utilitarianMorality >= low && gameState.utilitarianMorality < high &&
+               gameState.workEthic >= low && gameState.workEthic < high) {
+        ending = "General Quagmire, your career has been marked by a series of compromises and middle-ground decisions. While you've avoided major controversies, you've also failed to distinguish yourself in any particular area. You retire with a mixed reputation, recognized for your ability to balance competing interests but criticized for lack of bold leadership.";
+    } else if (gameState.deontologicalMorality < low && gameState.utilitarianMorality < low && gameState.workEthic < low) {
+        ending = "General Quagmire, your inability to effectively navigate the complex moral landscape of military leadership, coupled with a poor work ethic, has led to your early retirement. Your legacy is one of missed opportunities and failed potential. You leave the military to pursue a quiet civilian life, reflecting on the challenges of command.";
     } else {
-        approach = "You prioritized hard work and efficiency above all else.";
+        ending = "General Quagmire, your career has been marked by a unique combination of strengths and weaknesses. Your legacy in the military is complex and multifaceted, leaving behind a trail of both accomplishments and controversies. As you move on to the next chapter of your life, the impact of your command will continue to be debated in military circles for years to come.";
     }
 
-    logMessage(approach);
+    logMessage(ending);
     document.getElementById('options').innerHTML = '<button onclick="restartGame()">Play Again</button>';
 }
 
