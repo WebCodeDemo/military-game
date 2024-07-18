@@ -359,6 +359,32 @@ function endGame() {
 }
 
     logMessage(ending);
+
+    // Determine ending number
+    let endingNumber;
+    if (gameState.deontologicalMorality >= high && gameState.workEthic >= high && gameState.utilitarianMorality < low) {
+        endingNumber = 1;
+    } else if (gameState.utilitarianMorality >= high && gameState.workEthic >= high && gameState.deontologicalMorality < low) {
+        endingNumber = 2;
+    } else if (gameState.deontologicalMorality >= high && gameState.utilitarianMorality >= high && gameState.workEthic < low) {
+        endingNumber = 3;
+    } else if (gameState.deontologicalMorality >= low && gameState.deontologicalMorality < high &&
+               gameState.utilitarianMorality >= low && gameState.utilitarianMorality < high &&
+               gameState.workEthic >= low && gameState.workEthic < high) {
+        endingNumber = 4;
+    } else if (gameState.deontologicalMorality < low && gameState.utilitarianMorality < low && gameState.workEthic < low) {
+        endingNumber = 5;
+    } else {
+        endingNumber = 6;
+    }
+    
+    const downloadLink = generateEndingImage(ending, endingNumber);
+    
+    const optionsDiv = document.getElementById('options');
+    optionsDiv.innerHTML = '';
+    optionsDiv.appendChild(downloadLink);
+
+    
     document.getElementById('options').innerHTML = '<button onclick="restartGame()">Play Again</button>';
 }
 
@@ -374,6 +400,71 @@ function restartGame() {
     updateUI();
     presentScenario();
 }
+
+
+function generateEndingImage(endingText, endingNumber) {
+    const canvas = document.getElementById('endingCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas size
+    canvas.width = 800;
+    canvas.height = 600;
+    
+    // Background
+    ctx.fillStyle = '#1a1a1a';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Border
+    ctx.strokeStyle = '#00ff00';
+    ctx.lineWidth = 10;
+    ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
+    
+    // Title
+    ctx.fillStyle = '#00ff00';
+    ctx.font = 'bold 36px "Courier New"';
+    ctx.textAlign = 'center';
+    ctx.fillText('CONFIDENTIAL: Command Evaluation', canvas.width / 2, 60);
+    
+    // Ending text
+    ctx.font = '18px "Courier New"';
+    const words = endingText.split(' ');
+    let line = '';
+    let y = 120;
+    for (let word of words) {
+        const testLine = line + word + ' ';
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > canvas.width - 60 && line !== '') {
+            ctx.fillText(line, canvas.width / 2, y);
+            line = word + ' ';
+            y += 30;
+        } else {
+            line = testLine;
+        }
+    }
+    ctx.fillText(line, canvas.width / 2, y);
+    
+    // Ending number and date
+    const now = new Date();
+    const dateString = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2, '0')} / ${String(now.getDate()).padStart(2, '0')}`;
+    const timeString = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+    
+    ctx.font = 'bold 24px "Courier New"';
+    ctx.fillText(`Ending ${endingNumber} of 6`, canvas.width / 2, canvas.height - 80);
+    ctx.font = '18px "Courier New"';
+    ctx.fillText(`Date: ${dateString}`, canvas.width / 2, canvas.height - 50);
+    ctx.fillText(`Time: ${timeString}`, canvas.width / 2, canvas.height - 20);
+    
+    // Create download link
+    const dataURL = canvas.toDataURL('image/png');
+    const downloadLink = document.createElement('a');
+    downloadLink.href = dataURL;
+    downloadLink.download = 'Tell_Us_What_To_Do_Sir_Ending.png';
+    downloadLink.textContent = 'Download Ending Image';
+    downloadLink.className = 'download-button';
+    
+    return downloadLink;
+}
+
 
 // Start the game
 window.onload = function() {
