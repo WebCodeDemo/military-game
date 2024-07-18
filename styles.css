@@ -98,3 +98,25 @@ label {
 ::-webkit-scrollbar-thumb:hover {
     background: #00cc00;
 }
+
+
+.download-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #00ff00;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #00cc00;
+    box-shadow: 0 0 15px #00ff00;
+}
