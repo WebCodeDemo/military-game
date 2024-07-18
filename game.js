@@ -309,7 +309,7 @@ function makeChoice(optionIndex) {
 
     gameState.currentScenario++;
     if (gameState.currentScenario < scenarios.length) {
-        setTimeout(presentScenario, 2000); // Wait 2 seconds before presenting the next scenario
+        setTimeout(presentScenario, 5000); // Wait 5 seconds before presenting the next scenario
     } else {
         endGame();
     }
