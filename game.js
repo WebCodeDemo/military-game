@@ -2,7 +2,7 @@
 let gameState = {
     utilitarianMorality: 50,
     deontologicalMorality: 50,
-    workEthic: 0,
+    workEthic: 50,
     currentScenario: 0
 };
 
