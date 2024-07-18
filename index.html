@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell Us What To Do, Sir</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .meter {
+            width: 100%;
+            background-color: #e0e0e0;
+            padding: 3px;
+            border-radius: 3px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+        }
+        .meter-fill {
+            display: block;
+            height: 22px;
+            background-color: #2196F3;
+            border-radius: 3px;
+            transition: width 500ms ease-in-out;
+        }
+        #message-log {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        #options {
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tell Us What To Do, Sir</h1>
+    
+    <div id="stats">
+        <h2>Player Stats</h2>
+        <div>
+            <label for="utilitarian">Utilitarian Morality:</label>
+            <div class="meter">
+                <span id="utilitarian-fill" class="meter-fill" style="width: 50%;"></span>
+            </div>
+            <span id="utilitarian-value">50</span>
+        </div>
+        <div>
+            <label for="deontological">Deontological Morality:</label>
+            <div class="meter">
+                <span id="deontological-fill" class="meter-fill" style="width: 50%;"></span>
+            </div>
+            <span id="deontological-value">50</span>
+        </div>
+        <div>
+            <label for="work-ethic">Work Ethic:</label>
+            <div class="meter">
+                <span id="work-ethic-fill" class="meter-fill" style="width: 0%;"></span>
+            </div>
+            <span id="work-ethic-value">0</span>
+        </div>
+    </div>
+
+    <h2>Message Log</h2>
+    <div id="message-log"></div>
+
+    <h2>Options</h2>
+    <div id="options"></div>
+
+    <script src="game.js"></script>
+</body>
+</html>
