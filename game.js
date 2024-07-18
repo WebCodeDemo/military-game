@@ -359,7 +359,7 @@ function endGame() {
 }
 
     logMessage(ending);
-
+    
     // Determine ending number
     let endingNumber;
     if (gameState.deontologicalMorality >= high && gameState.workEthic >= high && gameState.utilitarianMorality < low) {
@@ -378,14 +378,15 @@ function endGame() {
         endingNumber = 6;
     }
     
+    console.log("Generating ending image..."); // Debug log
     const downloadLink = generateEndingImage(ending, endingNumber);
+    console.log("Download link generated:", downloadLink); // Debug log
     
     const optionsDiv = document.getElementById('options');
     optionsDiv.innerHTML = '';
     optionsDiv.appendChild(downloadLink);
-
-    
-    document.getElementById('options').innerHTML = '<button onclick="restartGame()">Play Again</button>';
+    console.log("Download link appended to options div"); // Debug log
+    optionsDiv.innerHTML += '<button onclick="restartGame()">Play Again</button>';
 }
 
 // Function to restart the game
